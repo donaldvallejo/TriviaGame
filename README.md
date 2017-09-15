@@ -1,2 +1,3 @@
 # TriviaGame
-trivia game for Rick and Morty
+trivia game with Rick and Morty theme.
+i suck :(
