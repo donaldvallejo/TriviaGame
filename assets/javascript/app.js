@@ -115,14 +115,14 @@ function timesUp() {
   Timer.stop();
   Timer.reset();
   $("#time").empty();
-  $("#question").html("<h2>Time's Up!</h2>");
+  $("#question").html("<h2>No time left!</h2>");
   $('#answer0, #answer1, #answer2, #answer3').hide().off('click');
 
   timeUp = setTimeout(advance, 2 * 400);
 }
 
 function endScreen() {
-  $("#time").html("<h2>Great job!</h2>");
+  $("#time").html("<h2>Good job!</h2>");
   $("#questions").html("Your Results <br><br>Right: " + right + "<br>Wrong: " + wrong + "<br>Unanswered: " + notAnswered);
 }
 
