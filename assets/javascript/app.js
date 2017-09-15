@@ -33,21 +33,39 @@ $(document).ready(function() {
    }, {
      question: "what's mortys sisters name?",
      answers: ["Summer", "Jessica", "Khaleesi", "Gwen"],
-     picright: "assets/images/q2_correct.gif",
-     picwrong: "assets/images/q2_wrong.gif",
      correctanswer: 0
    }, {
      question: "what is Squanching?",
-     answers: ["throwing up", "hang yourself and masturbate simultaneously", "Chillin", "Doing the deed"],
-     picright: "assets/images/q3_correct.gif",
-     picwrong: "assets/images/q3_wrong.gif",
+     answers: ["throwing up", "hanging yourself while masturbating simultaneously", "Chillin", "Doing the deed"],
      correctanswer: 1
    }, {
      question: "Whats Ricks relation to Morty?",
      answers: ["His science teacher", "A random encounter", "His Grandfather", "Guardian angle"],
-     picright: "assets/images/q4_correct.gif",
-     picwrong: "assets/images/q4_wrong.gif",
      correctanswer: 2
+   }, {
+     question: "What's Ricks fastest way of transportation?",
+     answers: ["Car", "Horseback", "Train", "Portal Gun"],
+     correctanswer: 3
+   }, {
+     question: "What does Snuffles the dog change his name to?",
+     answers: ["Snowball", "Charlie", "Fido", "Biscuit"],
+     correctanswer: 0
+   }, {
+     question: "What's morty's mom's name?",
+     answers: ["Stacey", "Summer", "Beth", "Jessica"],
+     correctanswer: 2
+   }, {
+     question: "What is the name of the Roller Coaster that almost gets Rick killed??",
+     answers: ["The Death Coaster", "Medusa", "SuperMan", "The Whirly Dirly"],
+     correctanswer: 3
+   }, {
+     question: "Which McNugget sauce does Rick love?",
+     answers: ["Mac Sauce", "Schezwan sauce", "BBQ", "Sriracha Mac sauce"],
+     correctanswer: 1
+   }, {
+     question: "Hit song Rick improvises to save Earth",
+     answers: ["Get Schwifty", "Free Bird", "Bohemian Rhapsody", "Stairway to Heaven"],
+     correctanswer: 0
    }]
   right = 0;
   wrong = 0;
