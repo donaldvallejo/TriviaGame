@@ -95,7 +95,7 @@ function rightAnswer(){
   $("#questions").html("<h3>Correct!</h3>");
   $('#answer0, #answer1, #answer2, #answer3').hide().off('click');
 
-  timeUp = setTimeout(advance, 3 * 1000);
+  timeUp = setTimeout(advance, 2 * 400);
 }
 function wrongAnswer() {
   clearTimeout(timeUp);
@@ -106,7 +106,7 @@ function wrongAnswer() {
   $("#questions").html("<h3>Incorrect!</h3>");
   $('#answer0, #answer1, #answer2, #answer3').hide().off('click');
 
-  timeUp = setTimeout(advance, 3 * 1000);
+  timeUp = setTimeout(advance, 2 * 400);
 }
 
 function timesUp() {
@@ -118,7 +118,7 @@ function timesUp() {
   $("#question").html("<h2>Time's Up!</h2>");
   $('#answer0, #answer1, #answer2, #answer3').hide().off('click');
 
-  timeUp = setTimeout(advance, 3 * 1000);
+  timeUp = setTimeout(advance, 2 * 400);
 }
 
 function endScreen() {
