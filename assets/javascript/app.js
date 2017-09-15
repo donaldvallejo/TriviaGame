@@ -1,61 +1,59 @@
 $(document).ready(function() {
- var qArray
- var right;
+ var arr
+ var timeUp;
  var wrong;
- var unanswered;
- var currentIndex;
- var timeIsUp;
+ var right;
+ var index;
+ var notAnswered;
 
- var questionTimer = {
+ var Timer = {
      time: 30,
 
    reset: function() {
-         questionTimer.time = 30;
+         Timer.time = 30;
    },
    start: function() {
-     $("#time").html("Time Remaining: " + questionTimer.time).css("color", "#BCFEFF");;
-     counter = setInterval(questionTimer.count, 1000);
+     $("#time").html("Time Remaining: " + Timer.time).css("color", "#BCFEFF");;
+     counter = setInterval(Timer.count, 1000);
    },
    stop: function() {
          clearInterval(counter);
    },
    count: function() {
-         questionTimer.time--;
-         $("#time").html("Time Remaining: " + questionTimer.time);
+         Timer.time--;
+         $("#time").html("Time Remaining: " + Timer.time);
    }
  }
 
  function startTrivia() {
-   qArray = [{
-     question: "Who is the Queen of Dragons?",
-     answers: ["Sansa", "Daenerys", "Cersei", "Melisandre"],
-     picright: "assets/images/q1_correct.gif",
-     picwrong: "assets/images/q1_wrong.gif",
+   arr = [{
+     question: "What does 'Wubba Lubba Dub Dub' mean?",
+     answers: ["i love you", "I am in great pain, please help me.", "IDGAF", "Bring me a taco"],
      correctanswer: 1
    }, {
-     question: "Who is the King Beyond the Wall?",
-     answers: ["Eddard Stark", "Jon Snow", "Mance Rayder", "Night King"],
+     question: "what's mortys sisters name?",
+     answers: ["Summer", "Jessica", "Khaleesi", "Gwen"],
      picright: "assets/images/q2_correct.gif",
      picwrong: "assets/images/q2_wrong.gif",
-     correctanswer: 2
+     correctanswer: 0
    }, {
-     question: "Who was killed by 'The Strangler?'",
-     answers: ["Khal Drogo", "Catelyn Stark", "Shae", "Joffrey Baratheon"],
+     question: "what is Squanching?",
+     answers: ["throwing up", "hang yourself and masturbate simultaneously", "Chillin", "Doing the deed"],
      picright: "assets/images/q3_correct.gif",
      picwrong: "assets/images/q3_wrong.gif",
-     correctanswer: 3
+     correctanswer: 1
    }, {
-     question: "Which House Sigil goes with the words, 'We Do Not Sow?'",
-     answers: ["Greyjoy", "Stark", "Tully", "Mormont"],
+     question: "Whats Ricks relation to Morty?",
+     answers: ["His science teacher", "A random encounter", "His Grandfather", "Guardian angle"],
      picright: "assets/images/q4_correct.gif",
      picwrong: "assets/images/q4_wrong.gif",
-     correctanswer: 0
+     correctanswer: 2
    }]
   right = 0;
   wrong = 0;
-  unanswered = 0;
+  notAnswered = 0;
 
-  currentIndex = -1;
+  index = -1;
 
   $('#questions').html("<button class='button' id='start'>Start</button>");
   $('#answer0, #answer1, #answer2, #answer3').hide().off('click');
@@ -66,13 +64,12 @@ $(document).ready(function() {
 }
 
 function askQuestions() {
-    questionTimer.start();
-    $('#questions').html(qArray[currentIndex].question);
-    $('#answer0').show().html(qArray[currentIndex].answers[0]);
-    $('#answer1').show().html(qArray[currentIndex].answers[1]);
-    $('#answer2').show().html(qArray[currentIndex].answers[2]);
-    $('#answer3').show().html(qArray[currentIndex].answers[3]);
-    $('#gif-holder').hide().off('click');
+    Timer.start();
+    $('#questions').html(arr[index].question);
+    $('#answer0').show().html(arr[index].answers[0]);
+    $('#answer1').show().html(arr[index].answers[1]);
+    $('#answer2').show().html(arr[index].answers[2]);
+    $('#answer3').show().html(arr[index].answers[3]);
 
     onClickAnswer();
   }
@@ -80,7 +77,7 @@ function askQuestions() {
   function onClickAnswer() {
     $('.button').on("click", function() {
       var buttonClick = parseInt($(this).attr("value"));
-      if(buttonClick === qArray[currentIndex].correctanswer) {
+      if(buttonClick === arr[index].correctanswer) {
         rightAnswer();
       }
       else {
@@ -90,61 +87,51 @@ function askQuestions() {
   }
 
 function rightAnswer(){
-  clearTimeout(timeIsUp);
+  clearTimeout(timeUp);
   right++;
-  questionTimer.stop();
-  questionTimer.reset();
+  Timer.stop();
+  Timer.reset();
   $("#time").empty();
   $("#questions").html("<h3>Correct!</h3>");
   $('#answer0, #answer1, #answer2, #answer3').hide().off('click');
-  $('#gif-holder').show().html("<img class='gifs' src=" + qArray[currentIndex].picright + ">");
 
-  timeIsUp = setTimeout(advance, 3 * 1000);
+  timeUp = setTimeout(advance, 3 * 1000);
 }
 function wrongAnswer() {
-  clearTimeout(timeIsUp);
+  clearTimeout(timeUp);
   wrong++;
-  questionTimer.stop();
-  questionTimer.reset();
+  Timer.stop();
+  Timer.reset();
   $("#time").empty();
   $("#questions").html("<h3>Incorrect!</h3>");
   $('#answer0, #answer1, #answer2, #answer3').hide().off('click');
-  $('#gif-holder').show().html("The correct answer was: " + qArray[currentIndex].answers[qArray[currentIndex].correctanswer] + "<br><img class='gifs' src=" + qArray[currentIndex].picwrong + ">");
 
-  timeIsUp = setTimeout(advance, 3 * 1000);
+  timeUp = setTimeout(advance, 3 * 1000);
 }
 
 function timesUp() {
-  clearTimeout(timeIsUp);
-  unanswered++;
-  questionTimer.stop();
-  questionTimer.reset();
+  clearTimeout(timeUp);
+  notAnswered++;
+  Timer.stop();
+  Timer.reset();
   $("#time").empty();
   $("#question").html("<h2>Time's Up!</h2>");
   $('#answer0, #answer1, #answer2, #answer3').hide().off('click');
-  $('#gif-holder').show().html("The correct answer was: " + qArray[currentIndex].answers[qArray[currentIndex].correctanswer] + "<br><img class='gifs' src=" + qArray[currentIndex].picwrong + ">");
 
-  timeIsUp = setTimeout(advance, 3 * 1000);
+  timeUp = setTimeout(advance, 3 * 1000);
 }
 
 function endScreen() {
   $("#time").html("<h2>Great job!</h2>");
-  $("#questions").html("Your Results <br><br>Right: " + right + "<br>Wrong: " + wrong + "<br>Unanswered: " + unanswered);
-
-  $("#gif-holder").html("<button class='button' id='playagain'>Play again?</button>");
-
-  $("#playagain").on("click", function() {
-    startTrivia();
-    advance();
-  });
+  $("#questions").html("Your Results <br><br>Right: " + right + "<br>Wrong: " + wrong + "<br>Unanswered: " + notAnswered);
 }
 
 function advance() {
-  currentIndex++;
+  index++;
 
-  if(currentIndex < qArray.length) {
+  if(index < arr.length) {
     askQuestions();
-    timeIsUp = setTimeout(timesUp, 30 * 1000);
+    timeUp = setTimeout(timesUp, 30 * 1000);
   } else {
     endScreen();
   }

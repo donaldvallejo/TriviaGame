@@ -1,31 +1,47 @@
 body {
-  background-image: url("../images/Rick&Morty2.jpg");
+  background-image: url("../images/Rick&Morty3.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 .button {
   width: 250px;
-  border-radius: 0;
+  border-radius: 10px;
+  border-color: #b1f020;
   background-color: black;
-  opacity: 0.6;
   margin: 10px;
-  color: slateblue;
+  color: #25e8e2;
   font-size: 25px;
 }
+@font-face {
+    font-family:"green fuz";
+    src: url("green fuz.ttf");
+  }
 .button:hover{
-  background-color: #BCFEFF;
+  background-color: #b1f020;
 }
 #questions {
+  color: #1b8e8a;
   font-size: 23px;
 }
 #time {
+  color: #1b8e8a;
   font-size: 20px;
 }
 h1,
 .button,
 * {
-  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px #b1f020;
+  font-family: 'green fuz';
   text-align: center;
 }
 
 h1 {
-color: dimgrey;
-padding: 10px;
+  color: #25e8e2;
+  padding: 10px;
+}
+h2 {
+  color: #25e8e2;
+  text-shadow: 1px 1px #b1f020;
+}
