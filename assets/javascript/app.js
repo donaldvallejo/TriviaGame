@@ -141,7 +141,7 @@ function timesUp() {
 
 function endScreen() {
   $("#time").html("<h2>Good job!</h2>");
-  $("#questions").html("Your Results <br><br>Right: " + right + "<br>Wrong: " + wrong + "<br>Unanswered: " + notAnswered);
+  $("#questions").html("Right: " + right + "  Wrong: " + wrong + "  Unanswered: " + notAnswered);
 }
 
 function advance() {
