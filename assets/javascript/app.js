@@ -36,7 +36,7 @@ $(document).ready(function() {
      correctanswer: 0
    }, {
      question: "what is Squanching?",
-     answers: ["throwing up", "hanging yourself while masturbating simultaneously", "Chillin", "Doing the deed"],
+     answers: ["throwing up", "hanging yourself while masturbating simultaneously", "Chilling", "Doing the deed"],
      correctanswer: 1
    }, {
      question: "Whats Ricks relation to Morty?",
@@ -55,7 +55,7 @@ $(document).ready(function() {
      answers: ["Stacey", "Summer", "Beth", "Jessica"],
      correctanswer: 2
    }, {
-     question: "What is the name of the Roller Coaster that almost gets Rick killed??",
+     question: "What is the name of the Roller Coaster that almost gets Rick killed?",
      answers: ["The Death Coaster", "Medusa", "SuperMan", "The Whirly Dirly"],
      correctanswer: 3
    }, {
@@ -63,8 +63,8 @@ $(document).ready(function() {
      answers: ["Mac Sauce", "Schezwan sauce", "BBQ", "Sriracha Mac sauce"],
      correctanswer: 1
    }, {
-     question: "Hit song Rick improvises to save Earth",
-     answers: ["Get Schwifty", "Free Bird", "Bohemian Rhapsody", "Stairway to Heaven"],
+     question: "Hit song Rick improvises to save Earth?",
+     answers: ["Get Schwifty", "Free Bird", "Bohemian Rhapsody", "Ice Ice Baby"],
      correctanswer: 0
    }]
   right = 0;
@@ -141,7 +141,7 @@ function timesUp() {
 
 function endScreen() {
   $("#time").html("<h2>Good job!</h2>");
-  $("#questions").html("Right: " + right + "  Wrong: " + wrong + "  Unanswered: " + notAnswered);
+  $("#questions").html("Right: " + right + "  Wrong: " + wrong + " <br> Unanswered: " + notAnswered);
 }
 
 function advance() {
